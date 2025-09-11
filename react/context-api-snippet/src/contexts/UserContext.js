@@ -3,7 +3,11 @@ import React, { createContext, useState } from "react";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-    const [user, setUser] = useState({ name: "John", age: 30 });
+    const [theme, setTheme] = useState("light");
 
-    return React.createElement(UserContext.Provider, { value: user }, children);
+    return React.createElement(
+        UserContext.Provider,
+        { value: { theme, setTheme } },
+        children
+    );
 }
